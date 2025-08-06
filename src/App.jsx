@@ -13,7 +13,9 @@ import PropsCondition from "./PropsCondition";
 /* This is code modification for Lec 14-15*/
 import Skills from "./Skills";
 import Clock from "./Clock"
+import Users from "./Users"
 
+import College from "./College";
 function App() {
   const [val, setVal] = useState("");
 
@@ -112,7 +114,31 @@ function App() {
     },
   ];
 
+  const collegeData =[
+    {
+      name: "NUCES",
+       students :[
+          {
+            name : "hassan"
+          },
+          {
+            name : "haziq"
+          }
+      ]
+    },
+    {
+      name : "ITU",
+       students :[
+          {
+            name : "hassan"
+          },
+          {
+            name : "haziq"
+          }
+      ]
+    },
 
+  ]
   const [color, setColor] = useState("green");
 
 
@@ -394,6 +420,36 @@ function App() {
         
         <Clock color={color}/>
       </div>
+      {/* Lec 25 */}
+      <h1>Lec 25</h1>
+      <div>
+            {
+              userData.map((user)=>(
+                <div key={user.id}>
+                  <h1>This is users</h1>
+                  <Users data={user}/>
+                </div>
+
+              ))
+
+            }
+
+      </div>
+      
+      <h1> Lec 26</h1>
+      <div>
+        {
+          collegeData.map((college)=>(
+            
+            <div>
+              <College data ={college}/>
+            </div>
+
+          )
+        )
+        }
+      </div>
+
     </>
   );
 }
